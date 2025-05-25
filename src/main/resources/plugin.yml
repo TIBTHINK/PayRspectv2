@@ -9,3 +9,5 @@ commands:
     description: Tests to make sure the plugin works
   Freedom:
     description: you just cant do it anymore...
+  FiringSquad:
+    description: kills every player that is on the server (good for the start of a server)

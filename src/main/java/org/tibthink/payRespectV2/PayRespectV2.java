@@ -6,6 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import org.tibthink.payRespectV2.Commands.FiringSquad;
 import org.tibthink.payRespectV2.Commands.Freedom;
 import org.tibthink.payRespectV2.Commands.Test;
 import org.tibthink.payRespectV2.Listeners.PlayerDeathListener;
@@ -18,6 +19,7 @@ public final class PayRespectV2 extends JavaPlugin {
         new PlayerDeathListener(this);
         getCommand("freedom").setExecutor(new Freedom());
         getCommand("test").setExecutor(new Test());
+        getCommand("firingsquad").setExecutor(new FiringSquad());
         getLogger().info("Testing one, two, three");
     }
 
