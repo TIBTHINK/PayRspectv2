@@ -15,3 +15,5 @@ Other than being updated to the latest version, I have added a command that is t
 Test: makes sure the plugin is working properly
 
 Freedom: kills the player who issued the command
+
+FiringSquad: kills every player who is logged into the server 
