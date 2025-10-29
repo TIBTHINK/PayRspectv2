@@ -70,7 +70,7 @@ public class DeathLeaderboardCommand implements CommandExecutor {
         sender.sendMessage(ChatColor.GOLD + "==== Death Leaderboard ====");
         int rank = 1;
         for (Map.Entry<String, Integer> entry : sorted) {
-            sender.sendMessage(ChatColor.YELLOW + "" + rank + ". " + ChatColor.BOLD +
+            sender.sendMessage(ChatColor.YELLOW + "" + rank + ". " + ChatColor.WHITE + ChatColor.BOLD +
                     entry.getKey() + ": " + ChatColor.RED + entry.getValue() + ChatColor.GRAY + " deaths");
             if (rank++ >= 10) break; // limit to top 10 for readability
         }

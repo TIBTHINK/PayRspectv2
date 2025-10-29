@@ -30,6 +30,7 @@ public final class PayRespectV2 extends JavaPlugin implements Listener {
         getCommand("deathcount").setExecutor(new DeathsCommand());
 //        getCommand("version").setExecutor(new DeathVersionCommand());
         getCommand("deathleaderboard").setExecutor(new DeathLeaderboardCommand(this));
+        getCommand("Pversion").setExecutor(new PVersion(this));
         getLogger().info("Testing one, two, three");
     }
 

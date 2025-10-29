@@ -1,10 +1,11 @@
 plugins {
     id 'java'
     id("xyz.jpenilla.run-paper") version "2.3.1"
+    id 'io.github.goooler.shadow' version '8.1.8'
 }
 
 group = 'org.tibthink'
-version = '2.6.3'
+version = '2.6.5'
 
 repositories {
     mavenCentral()
@@ -20,13 +21,20 @@ repositories {
 
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.21.4-R0.1-SNAPSHOT")
+    implementation 'org.json:json:20240303'
+}
+
+shadowJar {
+    archiveClassifier.set('')
+    relocate 'org.json', 'org.tibthink.payRespectV2.libs.json'
 }
 
 tasks {
+    build {
+        dependsOn(shadowJar)
+    }
+
     runServer {
-        // Configure the Minecraft version for our task.
-        // This is the only required configuration besides applying the plugin.
-        // Your plugin's jar (or shadowJar if present) will be used automatically.
         minecraftVersion("1.21")
     }
 }
