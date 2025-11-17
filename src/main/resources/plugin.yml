@@ -1,5 +1,5 @@
 name: PayRespectV2
-version: 'V2.6.6'
+version: 'V2.7.1'
 main: org.tibthink.payRespectV2.PayRespectV2
 api-version: "1.21"
 description: to pay respect to a fallen player

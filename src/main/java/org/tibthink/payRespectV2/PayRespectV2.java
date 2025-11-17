@@ -11,6 +11,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import org.tibthink.payRespectV2.Commands.*;
 import org.tibthink.payRespectV2.Listeners.PlayerDeathListener;
+import org.tibthink.payRespectV2.Utils.Metrics;
+import org.tibthink.payRespectV2.Utils.ModrinthUpdateChecker;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -21,6 +23,9 @@ public final class PayRespectV2 extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
+
+        int pluginId = 28027; // <-- Replace with the id of your plugin!
+        Metrics metrics = new Metrics(this, pluginId);
         // Plugin startup logic
         Bukkit.getServer().getPluginManager().registerEvents(this, this);
         new PlayerDeathListener(this);
@@ -28,14 +33,13 @@ public final class PayRespectV2 extends JavaPlugin implements Listener {
         getCommand("test").setExecutor(new Test());
         getCommand("firingsquad").setExecutor(new FiringSquad());
         getCommand("deathcount").setExecutor(new DeathsCommand());
-//        getCommand("version").setExecutor(new DeathVersionCommand());
         getCommand("deathleaderboard").setExecutor(new DeathLeaderboardCommand(this));
-//        getCommand("Pversion").setExecutor(new PVersion(this));
         PayRespectCommand payRespectCommand = new PayRespectCommand(this);
         getCommand("payrespect").setExecutor(payRespectCommand);
         getCommand("payrespect").setTabCompleter(payRespectCommand);
 
         getLogger().info("Testing one, two, three");
+        new ModrinthUpdateChecker(this, "payrespectv2").checkForUpdates();
     }
 
     @Override
