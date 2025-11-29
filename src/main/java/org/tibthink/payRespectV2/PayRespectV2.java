@@ -46,6 +46,7 @@ public final class PayRespectV2 extends JavaPlugin implements Listener {
     public void onDisable() {
         // Plugin shutdown logic
         getLogger().info("Good night world");
+        new ModrinthUpdateChecker(this, "payrespectv2").checkForUpdates();
     }
 
 
@@ -55,7 +56,7 @@ public final class PayRespectV2 extends JavaPlugin implements Listener {
         int deaths = player.getStatistic(Statistic.DEATHS);
 
         String message = ChatColor.RED + player.getName() + ChatColor.GRAY + " has died "
-                + ChatColor.YELLOW + deaths + ChatColor.GRAY + " times!";
+                + ChatColor.YELLOW + (deaths + 1) + ChatColor.GRAY + " times!";
         Bukkit.broadcastMessage(message);
     }
 }
